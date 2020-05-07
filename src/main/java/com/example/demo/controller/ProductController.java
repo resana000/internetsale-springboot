@@ -37,7 +37,6 @@ public class ProductController {
     public ResponseEntity add(@PathVariable String name,
                               @RequestBody Product product){
         productService.add(product);
-
         return ResponseEntity.ok(new MessageResponse());
 
     }

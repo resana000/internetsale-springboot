@@ -31,11 +31,12 @@ public class ProductServiceImpl implements ProductService {
 
     @Transactional
     @Override
-    public void add(Product product) throws NonSaved {
+    public void add(Product product) {
 
         Optional<Product> optionalProduct = productRepository.findById(product.getId());
         if (optionalProduct.isPresent())
-            return;
+            throw  new NonSaved(String.format("product id=%d already exist", product.getId()));
+
         productRepository.save(product);
         return;
     }
