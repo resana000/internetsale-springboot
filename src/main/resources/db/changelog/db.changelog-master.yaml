@@ -17,4 +17,4 @@ databaseChangeLog:
 
               - column:
                   name: name
-                  type: STRING
+                  type: VARCHAR(100)
