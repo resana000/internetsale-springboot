@@ -1,0 +1,15 @@
+version: "3"
+services:
+  db:
+    image: "postgres:12"
+    environment:
+      - POSTGRES_PASSWORD=password
+      - POSTGRES_USERNAME=postgres
+    ports:
+      - "54320:5432"
+  service:
+    image: "springbootcore:dev"
+    ports:
+      - "9040:8080"
+    environment:
+      db-url: jdbc:postgresql://db:5432/postgres
