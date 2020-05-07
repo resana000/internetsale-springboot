@@ -7,6 +7,9 @@ import com.example.demo.exception.DBFindException;
 import com.example.demo.exception.NonSaved;
 import com.example.demo.repository.ProductRepository;
 import com.example.demo.service.ProductService;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiParam;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.transaction.annotation.Transactional;
@@ -23,6 +26,7 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/product")
+@Api("Продукты")
 public class ProductController {
 
     @Autowired
@@ -33,19 +37,23 @@ public class ProductController {
         return "test";
     }
 
+    @ApiOperation("Добавить товар")
     @PostMapping("/add/{name}")
-    public ResponseEntity add(@PathVariable String name,
+    public ResponseEntity add(@ApiParam("Название") @PathVariable String name,
                               @RequestBody Product product){
         productService.add(product);
         return ResponseEntity.ok(new MessageResponse());
 
     }
 
+
+    @ApiOperation("Получить по id")
     @GetMapping("/{id}")
     public ResponseEntity getProduct(@PathVariable Long id){
         return ResponseEntity.ok(productService.getById(id));
     }
 
+    @ApiOperation("Обновить")
     @Transactional
     @PostMapping("/update/{id}")
     public void update(@PathVariable Long id,
@@ -53,6 +61,7 @@ public class ProductController {
         productService.add(consumeProduct);
     }
 
+    @ApiOperation("Удалить")
     @DeleteMapping("/delete/{id}")
     public void delete(@PathVariable Long id){
         productService.delete(productService.getById(id));
