@@ -5,6 +5,7 @@ import com.example.demo.domain.ProductCategory;
 import com.example.demo.dto.MessageResponse;
 import com.example.demo.exception.DBFindException;
 import com.example.demo.exception.NonSaved;
+import com.example.demo.kafka.KafkaProducer;
 import com.example.demo.repository.ProductRepository;
 import com.example.demo.service.ProductService;
 import io.swagger.annotations.Api;
@@ -30,10 +31,14 @@ import java.util.Optional;
 public class ProductController {
 
     @Autowired
+    KafkaProducer kafkaProducer;
+
+    @Autowired
     ProductService productService;
 
     @GetMapping("/test")
     public String test(){
+        kafkaProducer.sendMessage("test");
         return "test";
     }
 

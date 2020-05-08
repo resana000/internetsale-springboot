@@ -9,10 +9,13 @@ import org.springframework.stereotype.Service;
 @Slf4j
 public class KafkaProducer {
 
+    private static String TOPIC = "topic0";
+
     @Autowired
     KafkaTemplate<String, String> kafkaTemplate;
 
     public void sendMessage(String message){
-
+        log.info(String.format("send message = %s", message));
+        kafkaTemplate.send(TOPIC, message);
     }
 }

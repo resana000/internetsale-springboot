@@ -10,7 +10,7 @@ services:
     image: wurstmeister/kafka
     command: [start-kafka.sh]
     ports:
-      - "9092"
+      - "9092:9092"
     hostname: kafka
     environment:
       KAFKA_CREATE_TOPICS: "topic0" # topic:partition:replicas
@@ -38,4 +38,6 @@ services:
       DB_URL: jdbc:postgresql://db:5432/postgres
       DB_USERNAME: postgres
       DB_PASSWORD: admin
+      kafka-serv: kafka:9092
+
     restart: always
