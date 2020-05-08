@@ -1,0 +1,21 @@
+@startuml
+
+component boot_service
+component bpm_service
+database postgres
+component websocket
+queue kafka
+frame frontend
+cloud spring_cloud
+
+boot_service<--->frontend
+websocket<-->boot_service
+websocket<-->frontend
+boot_service<-->spring_cloud
+spring_cloud<-->bpm_service
+boot_service<->postgres
+boot_service<-->kafka
+kafka<-->bpm_service
+
+
+@enduml
