@@ -29,7 +29,6 @@ public class ProductOrder {
     @UpdateTimestamp
     LocalDateTime updateTime;
 
-    @Max(value = 10)
     String deliveryStatus;
 
     @ManyToMany
