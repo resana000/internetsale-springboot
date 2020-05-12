@@ -3,6 +3,7 @@
 ### Показано использование
 ### spring boot
 ### liquebase
+Нажмите view all посмотреть полностью
 ### docker
 ### тесты с использованием реальной тестовой базы данных
 ### swagger2
@@ -17,7 +18,3 @@
 1 сборка mvn clean package
 2 докеризация docker build -t sprinbootcore:dev .
 3 запуск бд в докере и приложения docker-compose up -d --build
-
-
-
-
