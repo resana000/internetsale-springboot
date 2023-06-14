@@ -1,16 +1,10 @@
 к резюме ildar показал основной стек
 
-### Показано использование
-### spring boot
-### liquebase
-Нажмите view all посмотреть полностью
-### docker
-### тесты с использованием реальной тестовой базы данных
-### swagger2
-### uml диаграмма показывает навыки конструировать архитектуру и диаграммы классов
-### postgres
-### jpa
-### script install показывает навыки linux
+### Показано использование spring boot, liquebase, mvc, kafka, docker-compose, bash скриптов, hibernate
+
+###Общие приципы clean architecture и композиции сервисов в docker-compose
+
+### UML диаграмма демонстрирует архитектуру связности и компонентов
 
 ![qwd](https://github.com/juniorresana/internetsale-springboot/blob/master/image.png)
 
