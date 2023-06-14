@@ -2,7 +2,7 @@
 
 ### Показано использование spring boot, liquebase, mvc, kafka, docker-compose, bash скриптов, hibernate
 
-###Общие приципы clean architecture и композиции сервисов в docker-compose
+### Общие приципы clean architecture и композиции сервисов в docker-compose
 
 ### UML диаграмма демонстрирует архитектуру связности и компонентов
 
