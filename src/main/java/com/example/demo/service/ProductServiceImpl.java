@@ -4,7 +4,7 @@ import com.example.demo.domain.Product;
 import com.example.demo.exception.DBFindException;
 import com.example.demo.exception.NonSaved;
 import com.example.demo.repository.ProductRepository;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -12,16 +12,16 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
+@RequiredArgsConstructor
 public class ProductServiceImpl implements ProductService {
 
-    @Autowired
-    ProductRepository productRepository;
+    private final ProductRepository productRepository;
 
 
     @Override
     public Product getById(Long id) {
         return productRepository.findById(id).orElseThrow(
-                ()-> new DBFindException(String.format("product=%d not found", id)));
+                () -> new DBFindException(String.format("product=%d not found", id)));
     }
 
     @Override
@@ -32,13 +32,11 @@ public class ProductServiceImpl implements ProductService {
     @Transactional
     @Override
     public void add(Product product) {
-
         Optional<Product> optionalProduct = productRepository.findById(product.getId());
         if (optionalProduct.isPresent())
-            throw  new NonSaved(String.format("product id=%d already exist", product.getId()));
+            throw new NonSaved(String.format("product id=%d already exist", product.getId()));
 
         productRepository.save(product);
-        return;
     }
 
     @Override

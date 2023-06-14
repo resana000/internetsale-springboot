@@ -9,12 +9,12 @@ import org.springframework.stereotype.Service;
 @Slf4j
 public class KafkaProducer {
 
-    private static String TOPIC = "topic0";
+    private static String TOPIC = "products";
 
     @Autowired
     KafkaTemplate<String, String> kafkaTemplate;
 
-    public void sendMessage(String message){
+    public void sendMessage(String message) {
         log.info(String.format("send message = %s", message));
         kafkaTemplate.send(TOPIC, message);
     }
